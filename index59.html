@@ -1,0 +1,58 @@
+<head>
+    <title>Свойства объекта Document</title>
+    <script language="javascript">
+
+        function func() {
+            var body = document.getElementsByTagName('body')[0];
+            var a = document.createElement('a');
+            body.appendChild(a);
+            a.style.display = 'none';
+
+            var bgc = window.getComputedStyle(body, null).getPropertyValue("background-color");
+            var fgc = window.getComputedStyle(body, null).getPropertyValue("color");
+            var lc = window.getComputedStyle(a).getPropertyValue("color");
+            var al = window.getComputedStyle(a, 'active').getPropertyValue("color");
+            var vlc = window.getComputedStyle(a, 'visited').getPropertyValue("color");
+
+            var url = document.location;
+            var ref = document.referrer;
+            var t = document.getElementsByTagName('title')[0].innerHTML;
+            var lm = document.lastModified;
+            document.write("Цвет фона этой страницы <B>" + bgc + "</B>.");
+            document.write("<br>Цвет текста этой страницы <B>" + fgc + "</b>.");
+            document.write("<br>Цвет ссылок этой страницы <b>" + lc + "</b>.");
+            document.write("<br>Цвет активной ссылки этой страницы <B>" + al + "</b>.");
+            document.write("<br>Цвет посещенной ссылки этой страницы <B>" + vlc + "</b>.");
+            document.write("<br>URL этой страницы <B>" + url + "</b>.");
+            document.write("<br>До этого вы были на странице <B>" + ref + "</b>.");
+            document.write("<br>Заголовок этой страницы <B>" + t + "</b>.");
+            document.write("<br>Последние изменения в документ внесены: <b>" + lm + "</b>");
+        }
+    </script>
+    <style>
+        a {
+            color: #0000ff;
+        }
+
+        a:active {
+            color: #0000ff;
+        }
+
+        a:visited {
+            color: #800080;
+        }
+
+        :visited {
+            color: #800080;
+        }
+
+        * {
+            color: #000000;
+        }
+    </style>
+</head>
+
+<body style="background-color: #ffffff;">
+    <button onClick="func()">Кнопка</button>
+
+</body>
